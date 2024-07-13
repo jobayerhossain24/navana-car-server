@@ -10,9 +10,6 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// name- navanaUser
-// pass- uAYguUrv1m2n5hKC
-
 console.log(process.env.DB_PASS);
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.aec1n2d.mongodb.net/?appName=Cluster0`;
@@ -47,7 +44,6 @@ async function run() {
       const query = { _id: new ObjectId(id) };
 
       const options = {
-        // Include only the `title` and `imdb` fields in the returned document
         projection: { title: 1, price: 1, service_id: 1, img: 1 },
       };
       const result = await serviceCollection.findOne(query, options);
